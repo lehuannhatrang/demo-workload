@@ -19,14 +19,14 @@ spec:
         - name: payments-api
           image: polinux/stress:latest
           command: ["stress"]
-          args: ["--vm", "1", "--vm-bytes", "50M", "--vm-hang", "1"]
+          args: ["--vm", "1", "--vm-bytes", "100M", "--vm-hang", "1"]
           resources:
             requests:
               cpu: "50m"
-              memory: "32Mi"
+              memory: "64Mi"
             limits:
               cpu: "200m"
-              memory: "128Mi"
+              memory: "256Mi"
           livenessProbe:
             exec:
               command: ["pgrep", "stress"]
