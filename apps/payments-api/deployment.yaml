@@ -1,12 +1,3 @@
-# Demo workload for opsgentic.
-#
-# This pod intentionally runs close to its memory limit so the HighPodMemory
-# alert fires. It is the remediation TARGET: opsgentic opens a PR proposing to
-# raise resources.limits.memory here (e.g. 64Mi -> 256Mi).
-#
-# The container is a memory-pressure simulator (polinux/stress); it allocates
-# ~50Mi against a 64Mi limit (~80%). It does not serve HTTP — the Service is a
-# placeholder to mirror a real app's manifest set.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -35,7 +26,7 @@ spec:
               memory: "32Mi"
             limits:
               cpu: "200m"
-              memory: "64Mi"          # remediation: raise this (e.g. 256Mi)
+              memory: "256Mi"
           livenessProbe:
             exec:
               command: ["pgrep", "stress"]
