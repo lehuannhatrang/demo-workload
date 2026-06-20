@@ -1,6 +1,3 @@
-# This is the deployment configuration for the payments-api application. It defines a single replica of the application, 
-# which runs a stress test to simulate high memory usage. 
-# The liveness probe checks if the stress process is running to ensure the application is healthy.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,9 +17,7 @@ spec:
     spec:
       containers:
         - name: payments-api
-          image: polinux/stress:latest
-          command: ["stress"]
-          args: ["--vm", "1", "--vm-bytes", "50M", "--vm-hang", "1"]
+          image: nginx:alpine
           resources:
             requests:
               cpu: "50m"
@@ -31,7 +26,8 @@ spec:
               cpu: "200m"
               memory: "64Mi"
           livenessProbe:
-            exec:
-              command: ["pgrep", "stress"]
-            initialDelaySeconds: 5
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
             periodSeconds: 15
