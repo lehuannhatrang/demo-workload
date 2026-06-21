@@ -32,6 +32,6 @@ spec:
           livenessProbe:
             exec:
               command: ["sh", "-c", "test -f /tmp/ready"]
-            initialDelaySeconds: While the liveness probe is failing due to an insufficient initial delay, the most targeted and minimal fix is to increase the `initialDelaySeconds` to at least 60 seconds to allow the container to start up before the probe begins checking. Setting it to 90 seconds provides a safe buffer beyond the 60-second startup time.
+            initialDelaySeconds: 90
             periodSeconds: 5
             failureThreshold: 2
