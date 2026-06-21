@@ -32,6 +32,6 @@ spec:
           livenessProbe:
             exec:
               command: ["sh", "-c", "test -f /tmp/ready"]
-            initialDelaySeconds: 5
+            initialDelaySeconds: go_to_next_step
             periodSeconds: 5
             failureThreshold: 2
