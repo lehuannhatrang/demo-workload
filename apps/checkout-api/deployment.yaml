@@ -24,7 +24,7 @@ spec:
           args: ["--cpu", "2"]
           resources:
             requests:
-              cpu: "100m"
+              cpu: 2
               memory: "32Mi"
             limits:
               cpu: 2
