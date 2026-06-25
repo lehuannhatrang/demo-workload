@@ -35,3 +35,4 @@ spec:
               command: ["pgrep", "stress"]
             initialDelaySeconds: 5
             periodSeconds: 15
+spec/template/spec/containers[name:payments-api]/resources/limits/memory: 128Mi
