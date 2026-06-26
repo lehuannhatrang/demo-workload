@@ -34,4 +34,4 @@ spec:
               command: ["sh", "-c", "test -f /tmp/ready"]
             initialDelaySeconds: 90
             periodSeconds: 5
-            failureThreshold: 2
+            failureThreshold: 5
